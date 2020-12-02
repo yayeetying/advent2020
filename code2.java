@@ -8,6 +8,7 @@ public class code2 {
     ArrayList<String> ayo = new ArrayList<>();
     ReadFile(ayo);
     int valid = 0; int min = 0; int max = 0; int count = 0; Character chara = ' ';
+    int valid2 = 0;
     for (int i = 0; i < ayo.size(); i++) {
       String[] pieces = ayo.get(i).split(" ");
 
@@ -24,8 +25,14 @@ public class code2 {
       }
 
       if (count >= min && count <= max) valid++;
+
+      //~~~~~~~~~~~~~~~~~~~
+      //if (pieces[2].charAt(min-1) == chara && pieces[2].charAt(max-1) != chara) valid2++;
+      if (pieces[2].charAt(max-1) != pieces[2].charAt(min-1) && (pieces[2].charAt(max-1) == chara ||
+                                                            pieces[2].charAt(min-1) == chara)) valid2++;
     }
     System.out.println(valid);
+    System.out.println(valid2);
   }
 
   public static void ReadFile(ArrayList<String> list) {
